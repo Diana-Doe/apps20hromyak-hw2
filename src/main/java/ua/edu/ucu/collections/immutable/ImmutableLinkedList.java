@@ -166,13 +166,8 @@ public class ImmutableLinkedList implements ImmutableList {
         if (size == 0) {
             return "";
         }
-        String str = "";
-        Node cur = start;
-        while (cur != null) {
-            str += cur.getValue() + ", ";
-            cur = cur.getNext();
-        }
-        return str.substring(0, str.length() - 2);
+        String str = Arrays.toString(toArray());
+        return str.substring(1, str.length() - 1);
     }
 
     public ImmutableLinkedList addFirst(Object e) {

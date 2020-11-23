@@ -115,10 +115,7 @@ public class ImmutableArrayList implements ImmutableList {
         if (list.length == 0) {
             return "";
         }
-        String str = new String();
-        for (Object el: list) {
-            str += el + ", ";
-        }
-        return str.substring(0, str.length() - 2);
+        String str = Arrays.toString(toArray());
+        return str.substring(1, str.length() - 1);
     }
 }
