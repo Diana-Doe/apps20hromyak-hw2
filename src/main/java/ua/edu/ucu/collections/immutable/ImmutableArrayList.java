@@ -3,7 +3,7 @@ package ua.edu.ucu.collections.immutable;
 
 import java.util.Arrays;
 
-public class ImmutableArrayList implements ImmutableList{
+public class ImmutableArrayList implements ImmutableList {
     private final Object[] list;
 
     public ImmutableArrayList() {
@@ -54,7 +54,8 @@ public class ImmutableArrayList implements ImmutableList{
         Object[] newArr = new Object[list.length + c.length];
         System.arraycopy(list, 0, newArr, 0, index);
         System.arraycopy(c, 0, newArr, index, c.length);
-        System.arraycopy(list, index, newArr, index + c.length, list.length - index);
+        System.arraycopy(list, index, newArr,
+                index + c.length, list.length - index);
         return new ImmutableArrayList(newArr);
     }
 
@@ -67,7 +68,8 @@ public class ImmutableArrayList implements ImmutableList{
     public ImmutableArrayList remove(int index) {
         Object[] newArr = new Object[list.length - 1];
         System.arraycopy(list, 0, newArr, 0, index);
-        System.arraycopy(list, index + 1, newArr, index,list.length - index - 1);
+        System.arraycopy(list, index + 1, newArr,
+                index, list.length - index - 1);
         return new ImmutableArrayList(newArr);
     }
 

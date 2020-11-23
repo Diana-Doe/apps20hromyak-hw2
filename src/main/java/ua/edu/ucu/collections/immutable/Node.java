@@ -4,8 +4,8 @@ public class Node {
     private Object value;
     private Node next;
 
-    public Node(Object value){
-        this.value=value;
+    public Node(Object value) {
+        this.value = value;
     }
 
     public Object getValue() {

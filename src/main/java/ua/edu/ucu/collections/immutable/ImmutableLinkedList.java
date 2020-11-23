@@ -2,10 +2,10 @@ package ua.edu.ucu.collections.immutable;
 
 import java.util.Arrays;
 
-public class ImmutableLinkedList implements ImmutableList{
-    public final Node start;
-    public final Node end;
-    public int size;
+public class ImmutableLinkedList implements ImmutableList {
+    private final Node start;
+    private final Node end;
+    private int size;
 
     public ImmutableLinkedList() {
         start = null;
@@ -86,7 +86,8 @@ public class ImmutableLinkedList implements ImmutableList{
         Object[] newArr = new Object[arr.length + c.length];
         System.arraycopy(arr, 0, newArr, 0, index);
         System.arraycopy(c, 0, newArr, index, c.length);
-        System.arraycopy(arr, index, newArr, index + c.length, arr.length - index);
+        System.arraycopy(arr, index, newArr,
+                index + c.length, arr.length - index);
         return new ImmutableLinkedList(newArr);
     }
 
@@ -107,7 +108,8 @@ public class ImmutableLinkedList implements ImmutableList{
         Object[] arr = toArray();
         Object[] newArr = new Object[arr.length - 1];
         System.arraycopy(arr, 0, newArr, 0, index);
-        System.arraycopy(arr, index + 1, newArr, index,arr.length - index - 1);
+        System.arraycopy(arr, index + 1, newArr, index,
+                arr.length - index - 1);
         return new ImmutableLinkedList(newArr);
     }
 
@@ -150,7 +152,7 @@ public class ImmutableLinkedList implements ImmutableList{
 
     @Override
     public Object[] toArray() {
-        Object newArr[] = new Object[size];
+        Object[] newArr = new Object[size];
         Node cur = start;
         for (int i = 0; i < size; i++) {
             newArr[i] = cur.getValue();
