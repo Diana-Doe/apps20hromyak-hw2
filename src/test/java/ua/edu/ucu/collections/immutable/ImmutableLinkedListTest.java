@@ -32,13 +32,17 @@ public class ImmutableLinkedListTest {
     public void addElement() {
         Object[] arr = {1, 2, 3};
         ImmutableLinkedList list = new ImmutableLinkedList(arr);
+        ImmutableLinkedList empty = new ImmutableLinkedList();
         Object[] expResult1 = {1, 2, 3};
         Object[] expResult2 = {1, 2, 3, 4};
+        Object[] expResult3 = {4};
 
-        ImmutableLinkedList newList = list.add(4);
+        ImmutableLinkedList newList1 = list.add(4);
+        ImmutableLinkedList newList2 = empty.add(4);
 
         assertArrayEquals(expResult1, list.toArray());
-        assertArrayEquals(expResult2, newList.toArray());
+        assertArrayEquals(expResult2, newList1.toArray());
+        assertArrayEquals(expResult3, newList2.toArray());
     }
 
     @Test
@@ -302,13 +306,17 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void removeFirst() {
-        Object[] arr = {1, 2, 3};
-        ImmutableLinkedList list = new ImmutableLinkedList(arr);
-        Object[] expResult = {2, 3};
+        Object[] arr = {1, 2};
+        ImmutableLinkedList list1 = new ImmutableLinkedList(arr);
+        ImmutableLinkedList list2 = new ImmutableLinkedList('a');
+        Object[] expResult1 = {2};
+        Object[] expResult2 = {};
 
-        Object[] actualResult = list.removeFirst().toArray();
+        Object[] actualResult1 = list1.removeFirst().toArray();
+        Object[] actualResult2 = list2.removeFirst().toArray();
 
-        assertArrayEquals(expResult, actualResult);
+        assertArrayEquals(expResult1, actualResult1);
+        assertArrayEquals(expResult2, actualResult2);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
